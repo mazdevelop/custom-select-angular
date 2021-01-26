@@ -1,0 +1,42 @@
+<div class="max-w-xl mx-auto my-6">
+  <article class="border-t border-b border-gray-400 p-2 hover:bg-gray-400">
+    <h2 class="text-xl text-center font-smibold">
+   Custom Select 
+  </h2>
+  </article>
+  <div class="relative">
+        <select [(ngModel)]="selectedItem" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+          
+          <option [ngValue]="null">Selected image</option>
+          <option *ngFor="let item of collection" [ngValue]="item">{{ item.name  }}</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+  </div>
+</div>
+<!-- 
+no image 
+
+,
+ -->
+<div class="max-w-xl mx-auto my-2">
+  <div class="w-full">
+	<div class="rounded-lg">
+    <img src="{{ selectedItem?.image }}" alt="" class="h64 object-cover w-full rounded-lg">
+  </div>
+  <p class="text-sm my-2">
+      {{ selectedItem?.description }}
+  </p>
+  <div *ngIf="selectedItem === null || selectedItem === undefind" >
+ <div class="rounded-lg" >
+    <img src="https://img.moglimg.com/p/AeKF6OlDkvCek.jpg" alt="">
+  </div>
+  <p class="text-sm my-2 text-center">
+      No Image Available Images
+  </p>
+  </div>
+ 
+
+</div>
+</div>
